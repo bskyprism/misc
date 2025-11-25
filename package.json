@@ -1,0 +1,37 @@
+{
+  "name": "@bskyprism/misc",
+  "version": "0.0.0",
+  "description": "Miscellaneous variables and things",
+  "files": [
+    "./dist/*"
+  ],
+  "exports": {
+    ".": "./dist/constants.js",
+    "./constants": "./dist/constants.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-esm": "esbuild src/*.ts --format=esm --keep-names --tsconfig=tsconfig.build.json --outdir=./dist --sourcemap && tsc --emitDeclarationOnly --project tsconfig.build.json --outDir dist",
+    "build": "mkdir -p ./dist && rm -rf ./dist/* && npm run build-esm",
+    "postversion": "git push --follow-tags && npm publish",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "bluesky"
+  ],
+  "homepage": "https://github.com/bskyprism/misc",
+  "bugs": {
+    "url": "https://github.com/bskyprism/misc/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bskyprism/misc.git"
+  },
+  "author": "nichoth",
+  "type": "module",
+  "main": "index.js",
+  "devDependencies": {
+    "esbuild": "^0.27.0",
+    "typescript": "^5.9.3"
+  }
+}
